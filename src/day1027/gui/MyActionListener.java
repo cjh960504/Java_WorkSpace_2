@@ -15,6 +15,8 @@ public class MyActionListener implements ActionListener {
 	private JTextArea area;
 
 	public MyActionListener(JTextField t_input, JTextArea area) {
+		//텍스트필드와 area는 기존꺼를 가져와야지
+		//새롭게 생성하면 안됨
 		this.t_input = t_input;
 		this.area = area;
 	}
