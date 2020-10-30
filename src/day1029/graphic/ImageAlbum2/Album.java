@@ -26,7 +26,7 @@ public class Album extends JFrame implements ActionListener{
 		bt_next=new JButton("다음");
 		l_north=new JLabel();
 		p_west=new JPanel();
-		p_west.setPreferredSize(new Dimension(200, 600));
+		p_west.setPreferredSize(new Dimension(150, 800));
 		sp_west = new JScrollPane(p_west);
 		p_center=new CenterPanel(l_north, path+imgName[index]);
 		for(int i=0;i<imgName.length;i++) {
