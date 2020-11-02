@@ -93,7 +93,7 @@ public class NoteApp extends JFrame implements ActionListener{
 		setSize(700, 600);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		setLocationRelativeTo(null);
 	}
 	public void open() {
 		JFileChooser chooser = new JFileChooser();

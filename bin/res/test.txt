@@ -1,0 +1,5 @@
+BufferedWrite는 write()로 한 라인의 String을 쓸 수 있따.
+BufferedWrite의 flush()함수를 써줘야만 파일에 적용된다
+newLine()은 개행문자와 같은 역할을 한다.
+이어쓰기가 되지 않았던 이유는 FileWrite(파일명, isApeend) 매개변수에 true를 안줘서 그럼
+default값이 false인가 보다
