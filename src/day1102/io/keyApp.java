@@ -7,6 +7,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
@@ -42,7 +43,8 @@ public class keyApp extends JFrame{
 		File file;
 		FileWriter writer=null;
 		try {
-			file = new File("C:/java_workspace/workspace/src/res/test.txt");
+			URI uri = url.toURI();
+			file = new File(uri);
 //			System.out.println(file.length());
 			writer = new FileWriter(file, true);
 			BufferedWriter buffW = new BufferedWriter(writer);
@@ -51,6 +53,9 @@ public class keyApp extends JFrame{
 			buffW.flush();
 			t.setText("");
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
