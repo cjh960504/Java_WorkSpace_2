@@ -1,4 +1,4 @@
-package day1102.game;
+package day1103.test;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -10,7 +10,7 @@ public class Bullet extends GameObject{
 	
 	@Override
 	public void tick() {
-		this.x+=this.velX;
+		x += velX;
 	}
 	
 	@Override

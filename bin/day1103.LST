@@ -1,0 +1,88 @@
+SQL> select username from dba_users;
+
+USERNAME                                                                        
+------------------------------------------------------------                    
+USER0907_2                                                                      
+USER0907                                                                        
+DEV                                                                             
+WNS                                                                             
+HYUK                                                                            
+CHOI                                                                            
+JAVA                                                                            
+HR                                                                              
+ANONYMOUS                                                                       
+FLOWS_FILES                                                                     
+APEX_040000                                                                     
+
+USERNAME                                                                        
+------------------------------------------------------------                    
+MDSYS                                                                           
+CTXSYS                                                                          
+DBSNMP                                                                          
+XDB                                                                             
+APPQOSSYS                                                                       
+MYJSP                                                                           
+SYS                                                                             
+SYSTEM                                                                          
+APEX_PUBLIC_USER                                                                
+OUTLN                                                                           
+DIP                                                                             
+
+USERNAME                                                                        
+------------------------------------------------------------                    
+ORACLE_OCM                                                                      
+XS$NULL                                                                         
+
+24 rows selected.
+
+SQL> -- 유저 생성하기 DDL
+SQL> show user;
+USER is "SYSTEM"
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create tablespace space1104
+  2  datafile 'C:\oraclexe\app\oracle\oradata\XE\space1104.dbf'
+  3* size 10m
+SQL> /
+
+Tablespace created.
+
+SQL> -- 유저 생성
+SQL> create user user1104
+  2  identified by user1104
+  3  default tablespace space1104
+  4  quota unlimited on space1104;
+
+User created.
+
+SQL> --필요한 권한 부여 DCL
+SQL> grant create table, create sequence, create session to user1104;
+
+Grant succeeded.
+
+SQL> -- 유저로 접속을 시도하고, 테이블 생성하자!!
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table member(
+  2  member_id number primary key,
+  3  name varchar(20),
+  4  age number,
+  5  phone varchar(20)
+  6* )
+SQL> /
+
+Table created.
+
+SQL> show tables;
+SP2-0158: unknown SHOW option "tables"
+SQL> desc member;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MEMBER_ID                                 NOT NULL NUMBER
+ NAME                                               VARCHAR2(20)
+ AGE                                                NUMBER
+ PHONE                                              VARCHAR2(20)
+
+SQL> spool off
