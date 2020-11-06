@@ -102,6 +102,7 @@ public class EmpApp2 extends JFrame {
 	public void connect() {
 		// 오라클 접속시도하기 (1. 드라이버 로드 2. 접속(DriverManager를 이용하여 Connection인스턴스 얻기))
 		try {
+			//Class.forName("oracle.jdbc.driver.OracleDriver");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			area.append("드라이버 로드 성공\n");
 
