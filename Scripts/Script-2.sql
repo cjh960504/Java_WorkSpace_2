@@ -1,0 +1,1 @@
+select * from product where product_name like '%폴%';
