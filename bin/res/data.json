@@ -173,25 +173,6 @@
 			"time_stamp" : "2014-09-19"
 		},
 		{
-			"movie_id" : 10,
-			"url":"https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_.jpg",
-			"title" : "Guardians of the Galaxy",
-			"phase" : "Phase Two",
-			"category_name" : "Science Fiction",
-			"release_year" : 2014,
-			"running_time" : 121,
-			"rating_name" : "PG-13",
-			"disc_format_name" : "Blu-ray",
-			"number_discs" : 1,
-			"viewing_format_name" : "Widescreen",
-			"aspect_ratio_name" : "2.35:1",
-			"status" : 1,
-			"release_date" : "August 1, 2014",
-			"budget" : "170,000,000",
-			"gross" : "333,130,696",
-			"time_stamp" : "2014-12-07"
-		},
-		{
 			"movie_id" : 11,
 			"url":"https://images-na.ssl-images-amazon.com/images/I/915mchBV%2BaL._SL1500_.jpg",
 			"title" : "Avengers: Age of Ultron",
