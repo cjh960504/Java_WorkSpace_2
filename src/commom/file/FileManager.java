@@ -12,10 +12,19 @@ public class FileManager {
 		return str[1];					//.은 특수문자라 escaping필요(\\)
 	}
 	
+	//확장자 구하기 업데이트 : 마지막 점을 기준으로 가져와야 문제가 없다..
+	public static String getExtend2(String filename) {
+		//마지막 점의 위치 구하기!! lastIndexOf 메서드 이용
+		int lastIndex = filename.lastIndexOf(".");
+		
+		//마지막 '.' 다음 문자부터 가져와야하므로 +1을 더한다
+		return filename.substring(lastIndex+1, filename.length());
+	}
+//	
+//	//단위테스트를 위해 메인메서드 풀어놓자!!!
 //	public static void main(String[] args) {
-//		String fileName = getFileName("https://img.theqoo.net/img/Aeqlc.jpg");
-//		System.out.println(fileName);
-//		System.out.println(getExtend(fileName));
-//		
+//		String filename = getFileName("https://images-na.ssl-images-amazon.com/images/I/51xEeVYLqrL._SX342_.jpg");
+//		System.out.println(getFileName(filename));
+//		System.out.println(getExtend2(filename));
 //	}
 }

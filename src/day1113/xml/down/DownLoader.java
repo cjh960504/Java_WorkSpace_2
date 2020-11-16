@@ -16,6 +16,7 @@ import java.net.URLConnection;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -52,9 +53,12 @@ public class DownLoader extends JFrame {
 			public void run() {
 				parseData();
 				//총 몇건이 존재하는 지 출력
+				int len =movieHandler.movieList.size();
 				for(Movie obj:movieHandler.movieList) {
 					download(obj.getUrl());
 				}
+				//반복문이 모두 수행된 이후 시점이 바로, 다운로드가 완료된 시점
+				JOptionPane.showMessageDialog(DownLoader.this, "총 "+len+"개의 파일을 다운로드 완료하였습니다!");
 			}
 		};
 
@@ -92,8 +96,8 @@ public class DownLoader extends JFrame {
 	public void download(String path) {
 		InputStream is = null;
 		FileOutputStream fos = null; // 파일을 저장할 스트림
-		int count=0;
-
+		int total =0;
+		int readCount=0;
 		try {
 			URL url = new URL(path); // 자원의 주소
 			URLConnection con = url.openConnection(); // http커넥션을 만들기 위해
@@ -104,18 +108,20 @@ public class DownLoader extends JFrame {
 			is = http.getInputStream();// 연결된 URL로부터 입력스트림 얻기!!
 			long time = System.currentTimeMillis(); // 현재시간을 파일명으로 사용하자!!
 			String fileName = FileManager.getFileName(path)+".jpg";
-
+			total  = con.getContentLength();
 
 			fos = new FileOutputStream("C:/java_workspace/workspace/res/download/" + fileName);
 			int data = -1;
 
 			while (true) {
 				data = is.read();
-				bar.setValue(count++);
+				bar.setValue((int)getPercent(readCount, total));
 				if (data == -1)
 					break;
+				readCount++;
 				fos.write(data);
 			}
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -138,6 +144,11 @@ public class DownLoader extends JFrame {
 		}
 	}
 
+	//퍼센트를 구하는 메서드 정의
+		public float getPercent(int read, float total) {
+			// 읽은수/총바이트수 * 100
+			return (read/total)*100; 
+		}
 	public static void main(String[] args) {
 		new DownLoader();
 	}
