@@ -1,10 +1,28 @@
 package commom.image;
 
 import java.awt.Image;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class ImageUtil {
+	//URL로부터 이미지 가져오기 (인터넷이 연결되어있어야함~)
+	public static Image getImageFromURL(String path) {
+		Image img = null;
+		try {
+			URL url = new URL(path);
+			img = ImageIO.read(url);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return img;
+	}
+	
 	//아이콘을 반환해주는 메서드 
 	//static이라 new할 필요없게!
 	public static ImageIcon getIcon(Class target ,String path, int width, int height) {
